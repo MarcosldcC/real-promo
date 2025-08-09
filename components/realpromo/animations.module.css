@@ -1,0 +1,184 @@
+.wrapper {
+}
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fadeInUp.inView {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fadeIn {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+.fadeIn.inView {
+  opacity: 1;
+}
+.slideInLeft {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slideInLeft.inView {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slideInRight {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slideInRight.inView {
+  opacity: 1;
+  transform: translateX(0);
+}
+.scaleIn {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.5s ease-out;
+}
+.scaleIn.inView {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Micro-interactions */
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px var(--rp-shadow-white);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Card hover */
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--rp-gray);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.12);
+}
+.cardBorderReveal {
+  position: relative;
+}
+.cardBorderReveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+.cardBorderReveal:hover::after {
+  border-color: #ffffff;
+}
+
+/* Image hover overlay */
+.imageWrap {
+  position: relative;
+  overflow: hidden;
+}
+.imageWrap img {
+  transition: transform 0.5s ease;
+}
+.imageWrap:hover img {
+  transform: scale(1.05);
+}
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.imageWrap:hover .imageOverlay {
+  opacity: 1;
+}
+
+/* CTA gradient animation */
+.animatedGradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0284c7 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Pulsing gold button */
+.pulseGold {
+  box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(245, 197, 66, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 197, 66, 0);
+  }
+}
+
+/* Bouncing arrow */
+.bounce {
+  animation: bounce 1.8s infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Subtle floating particles opacity animation per dot */
+.particleFade {
+  animation: pfade 3.2s ease-in-out infinite alternate;
+}
+@keyframes pfade {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+/* Underline on nav hover */
+.navLink {
+  position: relative;
+}
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+.navLink:hover::after {
+  width: 100%;
+}

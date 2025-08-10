@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 import styles from "./animations.module.css"
@@ -35,9 +36,7 @@ export default function Header({
   const smoothScroll = (href: string) => {
     const id = href.replace("#", "")
     const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
   return (
@@ -45,15 +44,20 @@ export default function Header({
       className={`fixed top-0 z-50 w-full transition-colors ${
         scrolled ? "bg-black/95" : "bg-black/60"
       } backdrop-blur-md border-b border-[var(--rp-gray)]`}
-      style={{}}
       role="banner"
       aria-label="Navegação principal"
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-3" aria-label="Página inicial Real Promo">
-          {/* Logo textual branca - pode ser substituída por SVG */}
-          <div className="h-8 w-8 rounded-sm bg-white" aria-hidden />
-          <span className="text-lg font-extrabold tracking-wide">REAL PROMO</span>
+          <Image
+            src="/favicon.png?v=2" // cache-busting
+            alt="Real Promo"
+            width={32}
+            height={32}
+            priority
+            className="rounded-sm"
+          />
+          <span className="text-lg font-extrabold tracking-wide text-white">REAL PROMO</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Seções do site">

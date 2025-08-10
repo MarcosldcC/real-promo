@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
@@ -25,8 +26,14 @@ export default function NeoHeader({ onRequestQuote = () => {} }: { onRequestQuot
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
         <div className="flex items-center gap-3">
-          <div className="h-7 w-7 rounded-sm bg-white" aria-hidden />
-          <span className="text-sm font-extrabold tracking-widest">REAL PROMO</span>
+          <Image
+            src="/favicon.png"
+            alt="Real Promo"
+            width={40}
+            height={40}
+            priority
+            className="rounded-sm"
+          />
         </div>
         <nav className="hidden gap-6 md:flex">
           {[

@@ -37,24 +37,34 @@ export default function ClientPage() {
     >
       <div className="bg-[var(--rp-black)] text-[var(--rp-white)] selection:bg-white selection:text-black">
         <NeoHeader onRequestQuote={() => setContactOpen(true)} />
+
         <section id="hero">
           <NeoHero onRequestQuote={() => setContactOpen(true)} />
         </section>
+
         <section id="work">
           <NeoWork />
         </section>
+
         <section id="capabilities">
           <NeoCaps />
         </section>
+
         <section id="specs">
           <NeoSpecs />
         </section>
+
         <section id="contact">
           <NeoContact onRequestQuote={() => setContactOpen(true)} />
         </section>
+
         <NeoFooter />
-        <WhatsAppFloat phone="5599999999999" />
+
+        {/* Modal de contato */}
         <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
+
+        {/* Botão flutuante do WhatsApp (agora renderizado) */}
+        <WhatsAppFloat />
       </div>
     </main>
   )

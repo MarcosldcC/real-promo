@@ -23,8 +23,8 @@ export default function WhatsAppFloat() {
       aria-label="Chamar no WhatsApp"
       className="fixed z-[200] flex items-center gap-2 rounded-full bg-green-500 text-white shadow-lg hover:shadow-xl transition-transform hover:-translate-y-0.5 whitespace-nowrap"
       style={{
-        right: 48,
-        bottom: 120,
+        right: 42,
+        bottom: 42,
         padding: "12px 20px",
         fontSize: 14,
       }}

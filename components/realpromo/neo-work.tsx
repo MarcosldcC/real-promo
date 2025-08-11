@@ -26,7 +26,7 @@ const DATA: Item[] = [
     title: "Crescere Contabilidade",
     category: "Stand",
     meta: "P2.5 Indoor • 6m x 3m • Ultra HD",
-    src: "/crescere contabilidade.jpg",
+    src: "/crescere.jpg",
     specs: ["Design modular", "Playback 4K", "Conteúdo animado brand-safe"],
   },
   {

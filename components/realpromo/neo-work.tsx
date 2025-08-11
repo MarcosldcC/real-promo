@@ -6,50 +6,22 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 type Item = {
   id: number
   title: string
-  category: "Stand" | "Feiras" | "Shows" | "Corporativo"
+  category: "Stand" | "Feiras" | "Shows" | "Eventos"
   meta: string
   src: string
   specs?: string[]
 }
 
 const DATA: Item[] = [
-  {
-    id: 1,
-    title: "Stand Topsat",
-    category: "Stand",
-    meta: "P3.91 Outdoor • 12m x 4m • 6000 nits",
-    src: "/standtopsat.jpg", // arquivo na raiz de public/
-    specs: ["Montagem 6h", "Operação 2 dias", "Conteúdo sincronizado com luz"],
-  },
-  {
-    id: 2,
-    title: "Crescere Contabilidade",
-    category: "Stand",
-    meta: "P2.5 Indoor • 6m x 3m • Ultra HD",
-    src: "/crescere.jpg",
-    specs: ["Design modular", "Playback 4K", "Conteúdo animado brand-safe"],
-  },
-  {
-    id: 3,
-    title: "Preserv",
-    category: "Stand",
-    meta: "P6 Giant • 14m x 6m",
-    src: "/preserv.jpg",
-    specs: ["Rigging certificado", "Timecode", "Operação multicâmera"],
-  },
-  {
-    id: 4,
-    title: "Kvoltz",
-    category: "Stand",
-    meta: "P2.5 Indoor • 4m x 2m • 3840Hz",
-    src: "/kvoltz.jpg",
-    specs: ["Cenografia clean", "Slides + vídeos", "Interatividade palco"],
-  },
+  { id: 1, title: "Stand Topsat", category: "Stand", meta: "P3.91 Outdoor • 12m x 4m • 6000 nits", src: "/standtopsat.jpg", specs: ["Montagem 6h", "Operação 2 dias", "Conteúdo sincronizado com luz"] },
+  { id: 2, title: "Crescere Contabilidade", category: "Stand", meta: "P2.5 Indoor • 6m x 3m • Ultra HD", src: "/crescere.jpg", specs: ["Design modular", "Playback 4K", "Conteúdo animado brand-safe"] },
+  { id: 3, title: "Preserv", category: "Stand", meta: "P6 Giant • 14m x 6m", src: "/preserv.jpg", specs: ["Rigging certificado", "Timecode", "Operação multicâmera"] },
+  { id: 4, title: "Kvoltz", category: "Stand", meta: "P2.5 Indoor • 4m x 2m • 3840Hz", src: "/kvoltz.jpg", specs: ["Cenografia clean", "Slides + vídeos", "Interatividade palco"] },
 ]
 
 export default function NeoWork() {
   const [filter, setFilter] =
-    useState<"Todos" | "Stand" | "Feiras" | "Shows" | "Corporativo">("Todos")
+    useState<"Todos" | "Stand" | "Feiras" | "Shows" | "Eventos">("Todos")
   const [active, setActive] = useState<Item | null>(null)
 
   const filtered = useMemo(
@@ -57,9 +29,12 @@ export default function NeoWork() {
     [filter]
   )
 
+  const filters = ["Todos", "Stand", "Feiras", "Shows", "Eventos"] as const
+
   return (
     <div className="mx-auto max-w-7xl px-5 py-20 md:py-28">
-      <div className="flex items-end justify-between">
+      {/* Header + Filtro */}
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="text-4xl font-extrabold tracking-[-0.02em] md:text-5xl">
             Projetos em Destaque
@@ -68,26 +43,25 @@ export default function NeoWork() {
             Seleção de cases que levaram marcas a outro nível.
           </p>
         </div>
-        <div className="hidden gap-2 md:flex">
-          {(["Todos", "Stand", "Feiras", "Shows", "Corporativo"] as const).map(
-            (f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`rounded-full border px-4 py-1.5 text-xs uppercase tracking-wider ${
-                  filter === f
-                    ? "border-white bg-white text-black"
-                    : "border-white/30 text-white/80 hover:text-white"
-                }`}
-              >
-                {f}
-              </button>
-            )
-          )}
+
+        <div className="flex flex-wrap gap-2 md:justify-end">
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={`rounded-full border px-4 py-1.5 text-xs uppercase tracking-wider ${
+                filter === f
+                  ? "border-white bg-white text-black"
+                  : "border-white/30 text-white/80 hover:text-white"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* grid editorial */}
+      {/* Grid de cards */}
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (
           <button
@@ -101,7 +75,7 @@ export default function NeoWork() {
               className="h-[420px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
               <div className="text-xs uppercase tracking-widest text-white/70">
                 {item.category}
@@ -113,33 +87,14 @@ export default function NeoWork() {
         ))}
       </div>
 
-      <div className="mt-6 flex gap-2 md:hidden">
-        {(["Todos", "Stand", "Feiras", "Shows", "Corporativo"] as const).map(
-          (f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`rounded-full border px-4 py-1.5 text-xs uppercase tracking-wider ${
-                filter === f
-                  ? "border-white bg-white text-black"
-                  : "border-white/30 text-white/80 hover:text-white"
-              }`}
-            >
-              {f}
-            </button>
-          )
-        )}
-      </div>
-
+      {/* Modal de detalhes */}
       <Dialog open={!!active} onOpenChange={(v) => !v && setActive(null)}>
         <DialogContent className="max-w-5xl border border-white/15 bg-black text-white">
-          {/* título acessível */}
           <DialogHeader>
             <DialogTitle className="sr-only">
               {active ? `${active.title} — detalhes` : "Detalhes do projeto"}
             </DialogTitle>
           </DialogHeader>
-
           {active && (
             <div className="grid gap-6 md:grid-cols-2">
               <div className="overflow-hidden rounded-lg border border-white/12">

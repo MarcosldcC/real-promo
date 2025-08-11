@@ -11,8 +11,8 @@ export default function WhatsAppFloat() {
     setMounted(true)
   }, [])
 
-  const phone = "5583996881746"
-  const message = "Olá! Vim pelo site e gostaria de saber mais."
+  const phone = "5583998180625"
+  const message = "Olá! Vim pelo site da Real Promo e gostaria de saber mais sobre as locações."
   const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 
   const btn = (

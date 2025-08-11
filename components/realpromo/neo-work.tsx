@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 type Item = {
   id: number
   title: string
-  category: "Eventos" | "Feiras" | "Shows" | "Corporativo"
+  category: "Stand" | "Feiras" | "Shows" | "Corporativo"
   meta: string
   src: string
   specs?: string[]
@@ -16,40 +16,40 @@ const DATA: Item[] = [
   {
     id: 1,
     title: "Stand Topsat",
-    category: "Eventos",
+    category: "Stand",
     meta: "P3.91 Outdoor • 12m x 4m • 6000 nits",
     src: "/standtopsat.jpg", // arquivo na raiz de public/
     specs: ["Montagem 6h", "Operação 2 dias", "Conteúdo sincronizado com luz"],
   },
   {
     id: 2,
-    title: "Expo Inovação 2025",
-    category: "Feiras",
+    title: "Crescere Contabilidade",
+    category: "Stand",
     meta: "P2.5 Indoor • 6m x 3m • Ultra HD",
-    src: "/placeholder.svg",
+    src: "/crescere contabilidade.jpg",
     specs: ["Design modular", "Playback 4K", "Conteúdo animado brand-safe"],
   },
   {
     id: 3,
-    title: "Live Festival",
-    category: "Shows",
+    title: "Preserv",
+    category: "Stand",
     meta: "P6 Giant • 14m x 6m",
-    src: "/placeholder.svg",
+    src: "/preserv.jpg",
     specs: ["Rigging certificado", "Timecode", "Operação multicâmera"],
   },
   {
     id: 4,
-    title: "Summit Finance",
-    category: "Corporativo",
+    title: "Kvoltz",
+    category: "Stand",
     meta: "P2.5 Indoor • 4m x 2m • 3840Hz",
-    src: "/placeholder.svg",
+    src: "/kvoltz.jpg",
     specs: ["Cenografia clean", "Slides + vídeos", "Interatividade palco"],
   },
 ]
 
 export default function NeoWork() {
   const [filter, setFilter] =
-    useState<"Todos" | "Eventos" | "Feiras" | "Shows" | "Corporativo">("Todos")
+    useState<"Todos" | "Stand" | "Feiras" | "Shows" | "Corporativo">("Todos")
   const [active, setActive] = useState<Item | null>(null)
 
   const filtered = useMemo(
@@ -69,7 +69,7 @@ export default function NeoWork() {
           </p>
         </div>
         <div className="hidden gap-2 md:flex">
-          {(["Todos", "Eventos", "Feiras", "Shows", "Corporativo"] as const).map(
+          {(["Todos", "Stand", "Feiras", "Shows", "Corporativo"] as const).map(
             (f) => (
               <button
                 key={f}
@@ -114,7 +114,7 @@ export default function NeoWork() {
       </div>
 
       <div className="mt-6 flex gap-2 md:hidden">
-        {(["Todos", "Eventos", "Feiras", "Shows", "Corporativo"] as const).map(
+        {(["Todos", "Stand", "Feiras", "Shows", "Corporativo"] as const).map(
           (f) => (
             <button
               key={f}

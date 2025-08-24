@@ -13,6 +13,7 @@ import NeoContact from "@/components/realpromo/neo-contact"
 import NeoFooter from "@/components/realpromo/neo-footer"
 import ContactDialog from "@/components/realpromo/contact-dialog"
 import WhatsAppFloat from "@/components/realpromo/whatsapp-float"
+import Partners from "@/components/realpromo/partners"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700", "800", "900"] })
 const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "500", "600"] })
@@ -48,6 +49,10 @@ export default function ClientPage() {
 
         <section id="capabilities">
           <NeoCaps />
+        </section>
+
+        <section id="partners">
+          <Partners />
         </section>
 
         <section id="specs">

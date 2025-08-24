@@ -182,3 +182,20 @@
 .navLink:hover::after {
   width: 100%;
 }
+
+/* Partner card styles */
+.partnerCard {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.partnerCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.partnerCard:active {
+  transform: scale(0.98);
+}

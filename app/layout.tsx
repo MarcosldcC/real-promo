@@ -4,13 +4,19 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Real Promo",
   description: "Real Promo Comunicação Visual — Sua mensagem em grande escala.",
   icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-    shortcut: ["/favicon.png"],
+    icon: [
+      { url: "/logorealpromo.png", type: "image/png" },
+    ],
+    shortcut: ["/logorealpromo.png"],
+    apple: [
+      { url: "/logorealpromo.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   applicationName: "Real Promo",
   referrer: "origin-when-cross-origin",
@@ -21,10 +27,6 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#000000" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
 }
 
 export default function RootLayout({
@@ -36,9 +38,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body className="min-h-screen bg-black text-white antialiased">
+      <body className="min-h-screen antialiased">
         <main>{children}</main>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   )

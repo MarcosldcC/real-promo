@@ -2,7 +2,7 @@ export default function NeoCaps() {
   const caps = [
     {
       title: "Locação de Painéis LED",
-      desc: "Módulos indoor/outdoor escaláveis, brilho de até 6000 nits e refresh 3840Hz.",
+      desc: "Módulos outdoor escaláveis, brilho de até 6000 nits e refresh 3840Hz.",
     },
     {
       title: "Comunicação Visual",

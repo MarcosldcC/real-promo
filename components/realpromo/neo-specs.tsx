@@ -2,8 +2,6 @@ export default function NeoSpecs() {
   const panels = [
     { name: "P2.5 Indoor", quality: "Ultra HD", brightness: 3000, refresh: 3840 },
     { name: "P3.91 Outdoor", quality: "Full HD", brightness: 6000, refresh: 3840 },
-    { name: "P6 Giant", quality: "HD", brightness: 5500, refresh: 3840 },
-    { name: "P10 Long Distance", quality: "SD", brightness: 6000, refresh: 3840 },
   ]
   return (
     <div className="bg-[#0A0A0A]">
